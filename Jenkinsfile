@@ -28,13 +28,3 @@ pipeline {
             }
         }
     }
-
-    post {
-        always {
-            // Clean up - logout from Docker repository
-            script {
-                sh "docker logout $DOCKER_REPO"
-            }
-        }
-    }
-}
