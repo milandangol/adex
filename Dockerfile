@@ -4,6 +4,8 @@ FROM openjdk:8
 ENV MONGODBHOSTNAME=localhost
 ENV MONGODBPORT=27017
 ENV MONGODBNAME=mydatabase
+ENV MONGOUSERNAME=username
+ENV MONGOUPASSWORD=password
 
 # Add the JAR file to the image
 ADD target/*.jar applicationjar.jar
