@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     // Login to Docker repository will be done from config.json file 
-
+                    sh "docker login $DOCKER_REPO"
                     // Push Docker image
                     sh "docker push $DOCKER_REPO/$IMAGE_NAME:$IMAGE_TAG"
                 }
