@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_REPO = "test"
-        IMAGE_NAME = "mydockerimage"
-        IMAGE_TAG = "latest"
+        DOCKER_REPO = "harbor.adexassesment.com/"
+        IMAGE_NAME = "adex-assesment/nodejs-frontend"
+        IMAGE_TAG = 'DEV'.${BUILD_NUMBER}
     }
 
     stages {
