@@ -1,0 +1,44 @@
+query customerDetails {
+  customerById(id: "6409696e549eeda396e4a911") {
+    id
+    name
+    role
+    age
+    customerContactDetails {
+        id
+        email
+        mobile
+        address
+    }
+   }
+}
+
+
+-----------------------------
+
+query customerDetails {
+  customerById(id: "key2") {
+    id
+    name
+    role
+    age
+    customerContactDetails {
+        id
+        email
+        mobile
+        address
+    }
+   }
+}
+
+
+------------Mutation ----------------
+
+mutation AddCustomer {
+  addCustomer(name: "Vimal", role: "admin", age: 32, email: "vimal@gmail.com", mobile: "1234543212", address: "KR Puram Bangalore") {
+    id
+    name
+    role
+    age
+  }
+}
