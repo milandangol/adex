@@ -2,7 +2,8 @@ pipeline {
     agent any
     environment {
         DOCKER_REPO = "harbor.adexassesment.com"
-        IMAGE_NAME = "adex-assesment/nodejs-frontend"
+        // adex-assesment-dev --> dev project in harbor
+        IMAGE_NAME = "adex-assesment-dev/nodejs-frontend"
         IMAGE_TAG = "DEV.${BUILD_NUMBER}"
     }
 
