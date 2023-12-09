@@ -2,18 +2,25 @@ pipeline {
     agent any
     environment {
         DOCKER_REPO = "harbor.adexassesment.com"
-        // adex-assesment-dev --> dev project in harbor
         IMAGE_NAME = "adex-assesment-dev/java-backend"
         IMAGE_TAG = "DEV.${BUILD_NUMBER}"
     }
 
     stages {
+        stage('Build and Test') {
+            steps {
+                script {
+                    // Run Maven clean install
+                    sh 'mvn clean install'
+                }
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 script {
                     // Build Docker image
                     sh "docker build -t $DOCKER_REPO/$IMAGE_NAME:$IMAGE_TAG ."
-                
                 }
             }
         }
@@ -28,3 +35,4 @@ pipeline {
             }
         }
     }
+
