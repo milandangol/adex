@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nodejs-frontend
+  namespace: adex-dev
 spec:
   selector:
     matchLabels:
@@ -15,9 +16,6 @@ spec:
       containers:
         - name: nodejs-frontend
           image: date-suggestions:your-updated-tag # Replace 'your-updated-tag' with the actual version/tag
-          securityContext:
-            readOnlyRootFilesystem: true
-            allowPrivilegeEscalation: false
           resources:
             limits:
               cpu: "200m"
@@ -27,15 +25,3 @@ spec:
               memory: "128Mi"
           ports:
             - containerPort: 3000
-          livenessProbe:
-            httpGet:
-              path: /
-              port: 3000
-            initialDelaySeconds: 3
-            periodSeconds: 3
-          readinessProbe:
-            httpGet:
-              path: / 
-              port: 3000
-            initialDelaySeconds: 5
-            periodSeconds: 5
