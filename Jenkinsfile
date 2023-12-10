@@ -27,5 +27,13 @@ pipeline {
                 }
             }
         }
+        stage('Updating New Image') {
+            steps {
+                script {
+                    
+                    sh "bash /var/lib/jenkins/argoscript.sh nodejs/nodejs-dev/deployment.yaml"
+                }
+            }
+        }
     }
 }
