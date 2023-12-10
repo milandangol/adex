@@ -8,7 +8,7 @@ spec:
     namespace: adex-dev
     server: 'https://kubernetes.default.svc'
   source:
-    path: java/java-dev
+    path: nodejs/nodejs-dev
     repoURL: 'git@github.com:milandangol/adex.git'
     targetRevision: manifest
   project: adex-dev
