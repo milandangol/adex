@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: java-dev
+spec:
+  destination:
+    name: ''
+    namespace: adex-dev
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: java/java-dev
+    repoURL: 'git@github.com:milandangol/adex.git'
+    targetRevision: manifest
+  project: adex-dev
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
