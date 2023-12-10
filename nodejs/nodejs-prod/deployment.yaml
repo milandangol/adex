@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: nodejs-frontend
-          image: harbor.adexassesment.com/adex-assesment-prod/nodejs-frontend:${BUILD.NUMBER} 
+          image: harbor.adexassesment.com/adex-assesment-prod/nodejs-frontend:DEV.12
           resources:
             limits:
               cpu: "200m"
