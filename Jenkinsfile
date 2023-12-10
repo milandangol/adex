@@ -31,7 +31,7 @@ pipeline {
             steps {
                 script {
                     
-                    sh "bash /var/lib/jenkins/argoscript.sh nodejs/nodejs-dev/deployment.yaml"
+                    sh "bash /var/lib/jenkins/argoscript.sh BUILD_NUMBER_ENV=$IMAGE_TAG nodejs/nodejs-dev/deployment.yaml"
                 }
             }
         }
