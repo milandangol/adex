@@ -33,6 +33,16 @@ pipeline {
                     sh "docker push $DOCKER_REPO/$IMAGE_NAME:$IMAGE_TAG"
                 }
             }
+
         }
+        stage('Updating New Image') {
+                steps {
+                    script {
+                        
+                        sh "BUILD_NUMBER_ENV=$IMAGE_TAG bash /var/lib/jenkins/argoscript.sh  java/java-dev/deployment.yaml"
+                    }
+                }
+            }
     }
+
 }
