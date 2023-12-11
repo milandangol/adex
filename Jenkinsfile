@@ -2,8 +2,8 @@ pipeline {
     agent any
     environment {
         DOCKER_REPO = "harbor.adexassesment.com"
-        IMAGE_NAME = "adex-assesment-stage/nodejs-frontend"
-        IMAGE_TAG = "STAGE.${BUILD_NUMBER}"
+        IMAGE_NAME = "adex-assesment-prod/nodejs-frontend"
+        IMAGE_TAG = "PROD.${BUILD_NUMBER}"
     }
     stages {
         stage('Build Docker Image') {
@@ -27,7 +27,7 @@ pipeline {
         stage('Updating New Image') {
             steps {
                 script {
-                    sh "BUILD_NUMBER_ENV=$IMAGE_TAG bash /var/lib/jenkins/argoscript.sh  nodejs/nodejs-stage/deployment.yaml"
+                    sh "BUILD_NUMBER_ENV=$IMAGE_TAG bash /var/lib/jenkins/argoscript.sh  nodejs/nodejs-prod/deployment.yaml"
                 }
             }
         }
