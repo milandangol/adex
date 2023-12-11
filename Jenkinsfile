@@ -27,7 +27,6 @@ pipeline {
         stage('Updating New Image') {
             steps {
                 script {
-                    
                     sh "BUILD_NUMBER_ENV=$IMAGE_TAG bash /var/lib/jenkins/argoscript.sh  nodejs/nodejs-stage/deployment.yaml"
                 }
             }
