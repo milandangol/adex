@@ -22,7 +22,7 @@ pipeline {
                 }
             }
         }
-        stage('Push Docker Image') {
+        stage('Pushing Docker Image to Harbor') {
             steps {
                 script {
                     // Login to Docker repository will be done from config.json file 
@@ -32,10 +32,9 @@ pipeline {
             }
 
         }
-        stage('Updating New Image') {
+        stage('Updating New Image From ArgoCD') {
                 steps {
                     script {
-                        
                         sh "BUILD_NUMBER_ENV=$IMAGE_TAG bash /var/lib/jenkins/argoscript.sh  java/java-dev/deployment.yaml"
                     }
                 }
