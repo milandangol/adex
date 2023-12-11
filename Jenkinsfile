@@ -22,7 +22,7 @@ pipeline {
                 }
             }
         }
-        stage('Pushing Docker Image to Harbor') {
+        stage('Pushing Docker Image to Harbor Reg') {
             steps {
                 script {
                     // Login to Docker repository will be done from config.json file 
