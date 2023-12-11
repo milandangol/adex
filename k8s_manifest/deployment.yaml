@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-frontend
+  namespace: adex-dev
+spec:
+  selector:
+    matchLabels:
+      app: nodejs-frontend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nodejs-frontend
+    spec:
+      containers:
+        - name: nodejs-frontend
+          image: date-suggestions:your-updated-tag # Replace 'your-updated-tag' with the actual version/tag
+          resources:
+            limits:
+              cpu: "200m"
+              memory: "256Mi" 
+            requests:
+              cpu: "150m"
+              memory: "128Mi"
+          ports:
+            - containerPort: 3000
