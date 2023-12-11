@@ -2,8 +2,8 @@ pipeline {
     agent any
     environment {
         DOCKER_REPO = "harbor.adexassesment.com"
-        IMAGE_NAME = "adex-assesment-stage/java-backend"
-        IMAGE_TAG = "STAGE.${BUILD_NUMBER}"
+        IMAGE_NAME = "adex-assesment-prod/java-backend"
+        IMAGE_TAG = "PROD.${BUILD_NUMBER}"
     }
     stages {
         stage('Build and Test') {
@@ -35,7 +35,7 @@ pipeline {
         stage('Updating New Image From ArgoCD') {
                 steps {
                     script {
-                        sh "BUILD_NUMBER_ENV=$IMAGE_TAG bash /var/lib/jenkins/argoscript.sh  java/java-stage/deployment.yaml"
+                        sh "BUILD_NUMBER_ENV=$IMAGE_TAG bash /var/lib/jenkins/argoscript.sh  java/java-prod/deployment.yaml"
                     }
                 }
             }
