@@ -11,7 +11,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    // Build Docker imagessss
+                    // Build Docker images
                     sh "whoami"
                     sh "docker build -t $DOCKER_REPO/$IMAGE_NAME:$IMAGE_TAG ."
                 
