@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: java-backend
-        image: harbor.adexassesment.com/adex-assesment-dev/java-backend:DEV.6
+        image: harbor.adexassesment.com/adex-assesment-dev/java-backend:DEV.7
         ports:
           - containerPort: 8080  
         env:
