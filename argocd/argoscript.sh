@@ -39,7 +39,7 @@ fi
 OLD_IMAGE=$(grep -E '^\s*image:' "$MANIFEST" | awk '{print $2}')
 
 # Set the new image with the updated build number
-NEW_IMAGE="harbor.adexassesment.com/adex-assesment-dev/nodejs-frontend:${BUILD_NUMBER}"
+NEW_IMAGE="${OLD_IMAGE%:*}:${BUILD_NUMBER}"
 
 # Replace the image in the specified manifest file
 sed -i "s|$OLD_IMAGE|$NEW_IMAGE|g" "$MANIFEST" || { echo "Failed to replace image in $MANIFEST"; exit 1; }
