@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: nodejs-frontend
-          image: harbor.adexassesment.com/adex-assesment-dev/nodejs-frontend:DEV.19 
+          image: harbor.adexassesment.com/adex-assesment-dev/nodejs-frontend:DEV.23 
           resources:
             limits:
               cpu: "200m"
