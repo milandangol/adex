@@ -6,7 +6,6 @@ pipeline {
         IMAGE_NAME = "adex-assesment-dev/nodejs-frontend"
         IMAGE_TAG = "DEV.${BUILD_NUMBER}"
     }
-
     stages {
         stage('Build Docker Image') {
             steps {
@@ -17,7 +16,6 @@ pipeline {
                 }
             }
         }
-
         stage('Push Docker Image') {
             steps {
                 script {
