@@ -5,7 +5,6 @@ pipeline {
         IMAGE_NAME = "adex-assesment-dev/java-backend"
         IMAGE_TAG = "DEV.${BUILD_NUMBER}"
     }
-
     stages {
         stage('Build and Test') {
             steps {
@@ -15,7 +14,6 @@ pipeline {
                 }
             }
         }
-
         stage('Build Docker Image') {
             steps {
                 script {
@@ -24,7 +22,6 @@ pipeline {
                 }
             }
         }
-
         stage('Push Docker Image') {
             steps {
                 script {
