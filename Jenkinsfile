@@ -12,7 +12,7 @@ pipeline {
             steps {
                 script {
                     // Build Docker images
-                    sh "whoami"
+
                     sh "docker build -t $DOCKER_REPO/$IMAGE_NAME:$IMAGE_TAG ."
                 
                 }
